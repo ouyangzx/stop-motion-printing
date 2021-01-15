@@ -1,11 +1,11 @@
 from win32com.client import Dispatch
 
-# word = Dispatch('Word.Application')
-# word = Dispatch('wps Application')
-# word = Dispatch('kwps Application')
-word = Dispatch('word.Application')
-word.Visible = True
 
+class WpsWord:
 
-test_docx = 'C:\\Users\\Administrator\\IdeaProjects\\stop-motion-printing\\test1.docx'
-doc = word.Documents.Open(test_docx)
+    def __init__(self):
+        self.word = Dispatch('word.Application')
+        self.word.Visible = True
+
+    def open(self,docx):
+        self.word.Documents.Open(docx)
